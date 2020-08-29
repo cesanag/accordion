@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .accordion {
+            cursor: pointer;
+            background-color: grey;
+            padding: 1rem;
+            border: 1px solid black;
+            color:white;
+        }
+        .description {
+            display: none;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="acc">
+    </div>
+</body>
+
+<script>  
+    let content = {
+        mainTitle: "Title",
+        panels: [
+            {
+            title: "Hi",
+            subtitle: "Test",
+            description: "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+            },
+            {
+            title: "Hoppa",
+            subtitle:"Tuck",
+            description: "quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur"
+            },
+            {
+            title: "8238423",
+            subtitle:"sdfs",
+            description: "Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            {
+            title: "ert45",
+            subtitle:"fghjythj",
+            description: "Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+        ]
+    }
+    let panel = ""
+    const addPanel = () => {
+        content.panels.forEach(el => {
+         panel += `<div class="accordion">
+                    <div class="title"><b>${el.title}</b></div>
+                    <div class="subtitle"><i>${el.subtitle}</i></div>
+                    <div class="description">${el.description}</div></div>`         
+    })
+    }
+    addPanel()
+    document.querySelector('#acc').innerHTML = panel
+
+    const addEvent = () => {
+        document.querySelectorAll('.accordion').forEach(el => el.addEventListener("click", function() {    
+                if (el.children[2].style.display === "" || el.children[2].style.display === "none") {
+                    el.children[2].style.display="block";
+                    el.style.backgroundColor="lightblue";
+                } else if (el.children[2].style.display === "block") {
+                    el.children[2].style.display="none";
+                    el.style.backgroundColor="grey";
+                } 
+            }))
+        }
+    addEvent()
+
+    
+</script>
+
+</html>
